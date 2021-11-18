@@ -81,6 +81,9 @@ public extension UIStackView {
     func margin(_ margins: UIEdgeInsets) -> UIStackView {
         layoutMargins = margins
         isLayoutMarginsRelativeArrangement = true
+		if #available(iOS 11.0, *) {
+			self.insetsLayoutMarginsFromSafeArea = false
+		}
         return self
     }
 
