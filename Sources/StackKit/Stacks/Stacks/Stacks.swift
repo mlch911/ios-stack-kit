@@ -12,7 +12,7 @@ import UIKit
 public extension UIView {
 
     @discardableResult
-    func ZStack(useSafeArea: Bool = true, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
+    func ZStack(useSafeArea: Bool = false, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
         let container = UIView()
         
         views().forEach { view in
@@ -23,13 +23,13 @@ public extension UIView {
     }
 
     @discardableResult
-    func VStack(spacing: CGFloat = .zero, useSafeArea: Bool = true, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
-        return createStack(.vertical, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, useSafeArea: useSafeArea)
+    func VStack(spacing: CGFloat = .zero, useSafeArea: Bool = false, constraint: Bool = false, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
+        return createStack(.vertical, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, useSafeArea: useSafeArea, constraint: constraint)
     }
 
     @discardableResult
-    func HStack(spacing: CGFloat = .zero, useSafeArea: Bool = true, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
-        return createStack(.horizontal, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, useSafeArea: useSafeArea)
+    func HStack(spacing: CGFloat = .zero, useSafeArea: Bool = false, constraint: Bool = false, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
+        return createStack(.horizontal, views: views(), spacing: spacing, alignment: .fill, distribution: .fill, useSafeArea: useSafeArea, constraint: constraint)
     }
 }
 
