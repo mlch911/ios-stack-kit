@@ -7,6 +7,7 @@
 
 import UIKit
 
+@objcMembers
 public final class Spacer: UIView {
 	
 	public static func auto() -> Spacer {
