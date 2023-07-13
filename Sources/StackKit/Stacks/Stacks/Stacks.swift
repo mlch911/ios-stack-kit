@@ -12,14 +12,14 @@ import UIKit
 public extension UIView {
 
     @discardableResult
-    func ZStack(useSafeArea: Bool = false, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
+    func ZStack(useSafeArea: Bool = false, constraint: Bool = false, @UIViewBuilder views: () -> [UIView]) -> UIStackView {
         let container = UIView()
         
         views().forEach { view in
-            container.VStack { view }
+			container.VStack(constraint: true) { view }
         }
 
-        return VStack { container }
+		return self.VStack(useSafeArea: useSafeArea, constraint: constraint) { container }
     }
 
     @discardableResult
@@ -42,7 +42,7 @@ public final class ZStack: UIStackView {
         let container = UIView()
         
         views().forEach { view in
-            container.VStack { view }
+            container.VStack(constraint: true) { view }
         }
         
         addArrangedSubview(container)
