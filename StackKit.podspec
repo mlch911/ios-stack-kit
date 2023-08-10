@@ -25,7 +25,7 @@ StackKit harnesses the power of UIStackView's and Swift's ResultBuilders togethe
   s.screenshots      = 'https://github.com/gymshark/ios-stack-kit/raw/master/Assets/example-1.png', 'https://github.com/gymshark/ios-stack-kit/raw/master/Assets/example-2.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gymshark' => 'engineering@gymshark.com' }
-  s.source           = { :git => 'https://github.com/gymshark/ios-stack-kit', :tag => s.version.to_s }
+  s.source           = { :git => 'https://git.maxjia.com/heybox_ios/ios-stack-kit', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
