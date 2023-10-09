@@ -25,12 +25,9 @@ public final class Spacer: UIView {
         super.init(frame: .zero)
     }
     
-    public init(square: CGFloat) {
-        super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
-        widthAnchor.constraint(equalToConstant: square).isActive = true
-        heightAnchor.constraint(equalToConstant: square).isActive = true
-    }
+	public convenience init(square: CGFloat) {
+		self.init(w: square, h: square)
+	}
 
     public init(w: CGFloat) {
         super.init(frame: .zero)
@@ -43,6 +40,13 @@ public final class Spacer: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: h).isActive = true
     }
+	
+	public init(w: CGFloat, h: CGFloat) {
+		super.init(frame: .zero)
+		translatesAutoresizingMaskIntoConstraints = false
+		widthAnchor.constraint(equalToConstant: w).isActive = true
+		heightAnchor.constraint(equalToConstant: h).isActive = true
+	}
 
     required public init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
