@@ -28,22 +28,19 @@ open class ScrollViewBuilder: UIView {
     
     // MARK: - Init
     
-    public init(axis: NSLayoutConstraint.Axis, @UIViewBuilder views: () -> [UIView]) {
+	public init(axis: NSLayoutConstraint.Axis, spacing: CGFloat, @UIViewBuilder views: () -> [UIView]) {
         
         super.init(frame: .zero)
             
         addSubview(scrollView)
         scrollView.addSubview(stackView)
+		stackView.spacing = spacing
         
         if axis == .vertical {
             stackView.axis = .vertical
-            stackView.distribution = .equalSpacing
             stackView.widthAnchor.constraint(equalTo:scrollView.widthAnchor).isActive = true
-            
         } else {
             stackView.axis = .horizontal
-            stackView.distribution = .fillEqually
-            stackView.alignment = .center
             stackView.heightAnchor.constraint(equalTo:scrollView.heightAnchor).isActive = true
         }
 
@@ -84,6 +81,12 @@ public extension ScrollViewBuilder {
         stackView.alignment = alignment
         return self
     }
+	
+	@discardableResult
+	func distribution(_ distribution: UIStackView.Distribution) -> Self {
+		stackView.distribution = distribution
+		return self
+	}
     
     @discardableResult
     func showVerticalIndicators(_ value: Bool) -> Self {

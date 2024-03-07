@@ -12,19 +12,19 @@ import UIKit
 public extension UIView {
 
     @discardableResult
-    func VScroll(useSafeArea: Bool = true, @UIViewBuilder views: () -> [UIView]) -> ScrollViewBuilder {
-        let scrollView = ScrollViewBuilder(axis: .vertical, views: views)
+    func VScroll(spacing: CGFloat = .zero, useSafeArea: Bool = false, constraint: Bool = false, @UIViewBuilder views: () -> [UIView]) -> ScrollViewBuilder {
+		let scrollView = ScrollViewBuilder(axis: .vertical, spacing: spacing, views: views)
         
-        VStack(useSafeArea: useSafeArea) { scrollView }
+        VStack(useSafeArea: useSafeArea, constraint: constraint) { scrollView }
         
         return scrollView
     }
     
     @discardableResult
-    func HScroll(useSafeArea: Bool = true, @UIViewBuilder views: () -> [UIView]) -> ScrollViewBuilder {
-        let scrollView = ScrollViewBuilder(axis: .horizontal, views: views)
+    func HScroll(spacing: CGFloat = .zero, useSafeArea: Bool = false, constraint: Bool = false, @UIViewBuilder views: () -> [UIView]) -> ScrollViewBuilder {
+		let scrollView = ScrollViewBuilder(axis: .horizontal, spacing: spacing, views: views)
         
-        VStack(useSafeArea: useSafeArea) { scrollView }
+		VStack(useSafeArea: useSafeArea, constraint: constraint) { scrollView }
         
         return scrollView
     }
@@ -33,16 +33,16 @@ public extension UIView {
 // MARK: - Class Variants
 
 public class HScroll: ScrollViewBuilder {
-    public init(@UIViewBuilder views: () -> [UIView]) {
-        super.init(axis: .horizontal, views: views)
+    public init(spacing: CGFloat = .zero, @UIViewBuilder views: () -> [UIView]) {
+        super.init(axis: .horizontal, spacing: spacing, views: views)
     }
     
     public required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
 
 public class VScroll: ScrollViewBuilder {
-    public init(@UIViewBuilder views: () -> [UIView]) {
-        super.init(axis: .vertical, views: views)
+    public init(spacing: CGFloat = .zero, @UIViewBuilder views: () -> [UIView]) {
+        super.init(axis: .vertical, spacing: spacing, views: views)
     }
     
     public required init(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
