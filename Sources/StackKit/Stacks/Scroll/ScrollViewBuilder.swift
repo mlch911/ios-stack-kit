@@ -11,7 +11,7 @@ open class ScrollViewBuilder: UIView {
     
     // MARK: - UI
         
-    private let scrollView: UIScrollView = {
+    public let scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsHorizontalScrollIndicator = false
@@ -19,7 +19,7 @@ open class ScrollViewBuilder: UIView {
         return sv
     }()
         
-    private let stackView: UIStackView = {
+	public let stackView: UIStackView = {
         let sv = UIStackView()
         sv.alignment = .fill
         sv.translatesAutoresizingMaskIntoConstraints = false
